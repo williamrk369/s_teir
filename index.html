@@ -7,140 +7,149 @@
   <meta name="description" content="Portfolio of work, consultancy services and student mentorship programs." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Scroll progress thread -->
+  <div class="thread" aria-hidden="true"><span class="thread__fill"></span></div>
+
   <header class="nav" id="top">
-    <div class="container nav__inner">
-      <a href="#top" class="nav__brand" data-bind="name">Your Name</a>
-      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-      <nav class="nav__links">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#consulting">Consulting</a>
-        <a href="#students">Students</a>
-        <a href="#contact" class="btn btn--small">Get in touch</a>
-        <button class="theme-toggle" aria-label="Toggle dark mode">◐</button>
-      </nav>
-    </div>
+    <a href="#top" class="nav__brand" id="wordmark"></a>
+    <button class="nav__toggle mono" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+    <nav class="nav__links mono">
+      <a href="#work">Work</a>
+      <a href="#consulting">Consulting</a>
+      <a href="#students">Students</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
-    <section class="hero">
-      <div class="container hero__inner">
-        <p class="eyebrow" data-bind="location"></p>
-        <h1>Hi, I'm <span class="gradient" data-bind="name"></span>.</h1>
-        <p class="hero__role" data-bind="role"></p>
-        <p class="hero__tagline" data-bind="tagline"></p>
-        <div class="hero__cta">
-          <a href="#work" class="btn">View my work</a>
-          <a href="#consulting" class="btn btn--ghost">Hire me</a>
-          <a href="#students" class="btn btn--ghost">Learn with me</a>
-        </div>
-        <div class="stats" id="stats"></div>
+    <section class="hero dark">
+      <svg class="hero__line" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-20 80 C 180 40, 260 260, 420 220 S 640 40, 760 160 S 980 420, 1080 300 S 1180 120, 1240 180" />
+        <circle cx="1080" cy="300" r="6" />
+      </svg>
+      <h1 class="display hero__title" id="headline"></h1>
+      <div class="hero__foot">
+        <p class="hero__tagline mono" data-bind="tagline"></p>
+        <a href="#work" class="mono hero__scroll">Scroll to explore <span class="accent">↓</span></a>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="container about">
-        <div>
-          <p class="eyebrow">About</p>
-          <h2>Builder, advisor & teacher</h2>
-          <div id="about-text"></div>
+    <section class="section light" id="about">
+      <div class="wrap">
+        <p class="kicker mono">00 / About</p>
+        <div class="about">
+          <h2 class="display display--md">Builder.<br />Advisor.<br /><span class="accent">Teacher.</span></h2>
+          <div>
+            <div id="about-text" class="body-lg"></div>
+            <p class="mono muted-sm" data-bind="location"></p>
+          </div>
         </div>
-        <div>
-          <h3>Skills & tools</h3>
-          <ul class="chips" id="skills"></ul>
-        </div>
+        <dl class="stats" id="stats"></dl>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section dark">
+      <div class="wrap">
+        <p class="kicker mono">Capabilities</p>
+        <ul class="skills mono" id="skills"></ul>
       </div>
     </section>
 
     <!-- WORK -->
-    <section class="section section--alt" id="work">
-      <div class="container">
-        <p class="eyebrow">Portfolio</p>
-        <h2>Selected work</h2>
-        <div class="filters" id="filters" role="tablist"></div>
-        <div class="grid grid--3" id="works"></div>
+    <section id="work">
+      <div class="work-head dark">
+        <div class="wrap work-head__inner">
+          <h2 class="display display--md">Selected<br />work</h2>
+          <div class="filters mono" id="filters"></div>
+        </div>
       </div>
+      <div id="works"></div>
     </section>
 
     <!-- CONSULTING -->
-    <section class="section" id="consulting">
-      <div class="container">
-        <p class="eyebrow">Consultancy</p>
-        <h2>How I can help your business</h2>
-        <p class="lead">From early-stage ideas to scaling products, I offer focused engagements that deliver measurable results.</p>
-        <div class="grid grid--4" id="services"></div>
+    <section class="section light" id="consulting">
+      <div class="wrap">
+        <p class="kicker mono">For businesses / Consultancy</p>
+        <div class="split">
+          <h2 class="display display--md">Turn the<br />messy middle<br />into <span class="accent">momentum.</span></h2>
+          <p class="body-lg">From early-stage ideas to scaling products, I offer focused engagements that deliver measurable results.</p>
+        </div>
 
-        <h3 class="subhead">How it works</h3>
+        <ol class="rows" id="services"></ol>
+
+        <p class="kicker mono kicker--spaced">How it works</p>
         <ol class="process" id="process"></ol>
 
-        <div class="cta-banner">
-          <div>
-            <h3>Have a project in mind?</h3>
-            <p>Book a free 30-minute discovery call.</p>
-          </div>
-          <a href="#contact" class="btn" data-inquiry="consulting">Book a consultation</a>
-        </div>
+        <a href="#contact" class="big-link" data-inquiry="consulting">Book a free consultation <span>↗</span></a>
       </div>
     </section>
 
     <!-- STUDENTS -->
-    <section class="section section--alt" id="students">
-      <div class="container">
-        <p class="eyebrow">For students</p>
-        <h2>Learn by building real projects</h2>
-        <p class="lead">Practical, mentor-led programs designed to take you from curious beginner to confident, job-ready professional.</p>
-        <div class="grid grid--3 programs" id="programs"></div>
+    <section class="section dark" id="students">
+      <div class="wrap">
+        <p class="kicker mono">For students / Programs</p>
+        <div class="split">
+          <h2 class="display display--md">Learn by<br /><span class="accent">building.</span></h2>
+          <p class="body-lg">Practical, mentor-led programs that take you from curious beginner to confident, job-ready professional.</p>
+        </div>
+        <div class="programs" id="programs"></div>
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="section" id="testimonials">
-      <div class="container">
-        <p class="eyebrow">Kind words</p>
-        <h2>What clients & students say</h2>
-        <div class="grid grid--3" id="testimonial-list"></div>
+    <section class="section light" id="testimonials">
+      <div class="wrap">
+        <p class="kicker mono">Kind words</p>
+        <div class="quotes" id="testimonial-list"></div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section section--alt" id="contact">
-      <div class="container contact">
+    <section class="section dark contact" id="contact">
+      <svg class="contact__line" viewBox="0 0 400 400" aria-hidden="true">
+        <path d="M200 20 C 340 40, 380 160, 300 220 S 80 260, 110 160 S 300 90, 320 260 S 160 380, 200 390" />
+        <circle cx="200" cy="390" r="5" />
+      </svg>
+      <div class="wrap contact__grid">
         <div>
-          <p class="eyebrow">Contact</p>
-          <h2>Let's work together</h2>
-          <p class="lead">Whether you need a consultant or want to join a program, send a message and I'll reply within 48 hours.</p>
-          <p><a class="contact__email" data-bind-email></a></p>
-          <ul class="socials" id="socials"></ul>
+          <h2 class="display display--md" id="closing"></h2>
+          <p class="body-lg">Need a consultant or want to join a program? Send a message and I'll reply within 48 hours.</p>
+          <a class="big-link" data-bind-email></a>
+          <ul class="socials mono" id="socials"></ul>
         </div>
 
         <form class="form" id="contact-form" novalidate>
-          <div class="form__tabs" role="tablist">
+          <div class="form__tabs mono" role="tablist">
             <button type="button" class="form__tab is-active" data-type="consulting">I'm a client</button>
             <button type="button" class="form__tab" data-type="student">I'm a student</button>
           </div>
           <input type="hidden" name="inquiry" value="consulting" />
 
-          <label>Full name
+          <label><span class="mono">Full name</span>
             <input name="name" required autocomplete="name" />
           </label>
-          <label>Email
+          <label><span class="mono">Email</span>
             <input name="email" type="email" required autocomplete="email" />
           </label>
 
           <div data-for="consulting">
-            <label>Company / organisation
+            <label><span class="mono">Company / organisation</span>
               <input name="company" />
             </label>
-            <label>Service of interest
+            <label><span class="mono">Service of interest</span>
               <select name="service" id="service-select"></select>
             </label>
-            <label>Estimated budget
+            <label><span class="mono">Estimated budget</span>
               <select name="budget">
                 <option>Under $1,000</option>
                 <option>$1,000 – $5,000</option>
@@ -152,10 +161,10 @@
           </div>
 
           <div data-for="student" hidden>
-            <label>Program
+            <label><span class="mono">Program</span>
               <select name="program" id="program-select"></select>
             </label>
-            <label>Current level
+            <label><span class="mono">Current level</span>
               <select name="level">
                 <option>Complete beginner</option>
                 <option>Some experience</option>
@@ -165,22 +174,20 @@
             </label>
           </div>
 
-          <label>Message
-            <textarea name="message" rows="4" required placeholder="Tell me about your goals…"></textarea>
+          <label><span class="mono">Message</span>
+            <textarea name="message" rows="3" required placeholder="Tell me about your goals…"></textarea>
           </label>
 
-          <button type="submit" class="btn btn--block">Send message</button>
-          <p class="form__status" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn">Send message <span>↗</span></button>
+          <p class="form__status mono" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <p>© <span id="year"></span> <span data-bind="name"></span>. All rights reserved.</p>
-      <a href="#top">Back to top ↑</a>
-    </div>
+  <footer class="footer dark mono">
+    <p>© <span id="year"></span> <span data-bind="name"></span></p>
+    <a href="#top">Back to top ↑</a>
   </footer>
 
   <script src="js/content.js"></script>

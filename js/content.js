@@ -8,6 +8,10 @@
 window.SITE = {
   name: "Your Name",
   role: "Designer · Developer · Consultant · Mentor",
+  /* Giant hero headline — one line per entry. The last line is highlighted. */
+  headline: ["I build", "products", "that work."],
+  /* Closing call-to-action above the contact form. */
+  closing: ["Have an idea", "worth building?"],
   tagline:
     "I build thoughtful digital products, help teams ship with confidence, and mentor the next generation of creators.",
   location: "Available worldwide · Remote & on-site",
