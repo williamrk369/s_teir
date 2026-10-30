@@ -13,18 +13,21 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+
   <!-- Scroll progress thread -->
   <div class="thread" aria-hidden="true"><span class="thread__fill"></span></div>
 
   <header class="nav" id="top">
-    <a href="#top" class="nav__brand" id="wordmark"></a>
+    <a href="#top" class="nav__brand" id="wordmark" data-cursor="Home"></a>
     <button class="nav__toggle mono" aria-label="Toggle menu" aria-expanded="false">Menu</button>
     <nav class="nav__links mono">
-      <a href="#work">Work</a>
-      <a href="#consulting">Consulting</a>
-      <a href="#students">Students</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#work" data-cursor="Go">Work</a>
+      <a href="#consulting" data-cursor="Go">Consulting</a>
+      <a href="#students" data-cursor="Go">Students</a>
+      <a href="#about" data-cursor="Go">About</a>
+      <a href="#contact" data-cursor="Go">Contact</a>
     </nav>
   </header>
 
@@ -38,7 +41,7 @@
       <h1 class="display hero__title" id="headline"></h1>
       <div class="hero__foot">
         <p class="hero__tagline mono" data-bind="tagline"></p>
-        <a href="#work" class="mono hero__scroll">Scroll to explore <span class="accent">↓</span></a>
+        <a href="#work" class="mono hero__scroll" data-cursor="Down">Scroll to explore <span class="accent">↓</span></a>
       </div>
     </section>
 
@@ -90,7 +93,7 @@
         <p class="kicker mono kicker--spaced">How it works</p>
         <ol class="process" id="process"></ol>
 
-        <a href="#contact" class="big-link" data-inquiry="consulting">Book a free consultation <span>↗</span></a>
+        <a href="#contact" class="big-link magnetic" data-inquiry="consulting" data-cursor="Book">Book a free consultation <span>↗</span></a>
       </div>
     </section>
 
@@ -124,14 +127,14 @@
         <div>
           <h2 class="display display--md" id="closing"></h2>
           <p class="body-lg">Need a consultant or want to join a program? Send a message and I'll reply within 48 hours.</p>
-          <a class="big-link" data-bind-email></a>
+          <a class="big-link magnetic" data-bind-email data-cursor="Mail"></a>
           <ul class="socials mono" id="socials"></ul>
         </div>
 
         <form class="form" id="contact-form" novalidate>
           <div class="form__tabs mono" role="tablist">
-            <button type="button" class="form__tab is-active" data-type="consulting">I'm a client</button>
-            <button type="button" class="form__tab" data-type="student">I'm a student</button>
+            <button type="button" class="form__tab is-active" data-type="consulting" data-cursor="Pick">I'm a client</button>
+            <button type="button" class="form__tab" data-type="student" data-cursor="Pick">I'm a student</button>
           </div>
           <input type="hidden" name="inquiry" value="consulting" />
 
@@ -178,7 +181,7 @@
             <textarea name="message" rows="3" required placeholder="Tell me about your goals…"></textarea>
           </label>
 
-          <button type="submit" class="btn">Send message <span>↗</span></button>
+          <button type="submit" class="btn magnetic" data-cursor="Send">Send message <span>↗</span></button>
           <p class="form__status mono" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -187,9 +190,11 @@
 
   <footer class="footer dark mono">
     <p>© <span id="year"></span> <span data-bind="name"></span></p>
-    <a href="#top">Back to top ↑</a>
+    <a href="#top" data-cursor="Up">Back to top ↑</a>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/content.js"></script>
   <script src="js/main.js"></script>
 </body>

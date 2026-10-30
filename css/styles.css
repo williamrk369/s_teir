@@ -102,7 +102,6 @@ h1, h2, h3, h4, p { margin: 0; }
 .hero__line { position: absolute; inset: 0; width: 100%; height: 75%; z-index: 0; }
 .hero__line path, .contact__line path {
   fill: none; stroke: var(--accent); stroke-width: 2.2; vector-effect: non-scaling-stroke;
-  transition: stroke-dashoffset 0.2s linear;
 }
 .hero__line circle, .contact__line circle { fill: none; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; }
 .hero__foot {
@@ -300,11 +299,37 @@ h1, h2, h3, h4, p { margin: 0; }
 .footer a { text-decoration: none; }
 .footer a:hover { color: var(--accent); }
 
-/* Reveal */
-.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
-.reveal.is-visible { opacity: 1; transform: none; }
+/* Masked text lines & words (animated by GSAP) */
+.line, .word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.display .line { display: block; }
+.line__in, .word__in { display: inline-block; will-change: transform; }
+.project__title a { text-decoration: none; }
+
+/* Custom cursor */
+.cursor {
+  position: fixed; top: 0; left: 0; z-index: 1000; pointer-events: none;
+  width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%;
+  border: 1px solid var(--accent); display: grid; place-items: center;
+  visibility: hidden; opacity: 0;
+  transition: width 0.25s var(--ease), height 0.25s var(--ease), margin 0.25s var(--ease), background-color 0.25s;
+}
+.cursor::after {
+  content: attr(data-label); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--black); opacity: 0; transition: opacity 0.2s;
+}
+.cursor.is-active { width: 74px; height: 74px; margin: -37px 0 0 -37px; background: var(--accent); }
+.cursor.is-active::after { opacity: 1; }
+.no-motion .cursor { display: none; }
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+
+/* Process line draws via the --draw custom property */
+.process { --draw: 1; }
+.process::before { transform: scaleX(var(--draw)); transform-origin: left; }
+@media (max-width: 760px) { .process::before { transform: scaleY(var(--draw)); transform-origin: top; } }
+
+/* Without GSAP (or with reduced motion) the scroll thread and drawn lines are static. */
+.no-motion .thread { display: none; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .hero__line path, .contact__line path { stroke-dashoffset: 0 !important; transition: none; }
 }

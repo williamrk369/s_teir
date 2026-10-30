@@ -11,6 +11,7 @@ A fast, dependency-free personal website to showcase your work, sell consultancy
 - **Testimonials**
 - **Contact form** with *client* / *student* tabs (Enroll / Book buttons pre-select the right tab)
 - Editorial two-tone design (black / ivory + one accent), oversized type, scroll-drawn accent lines, full-screen mobile menu
+- GSAP animations (intro, masked headline reveals, scroll-drawn lines, count-up stats, magnetic buttons) and a custom cursor that shows a label over links. The page stays fully usable if GSAP fails to load or the visitor prefers reduced motion.
 
 ## Customise
 All content lives in **`js/content.js`** — edit your name, hero headline, email, socials, projects, services, programs and testimonials there. No HTML changes needed.
