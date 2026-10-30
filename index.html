@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio · Consulting · Mentorship</title>
+  <meta name="description" content="Portfolio of work, consultancy services and student mentorship programs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__brand" data-bind="name">Your Name</a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <nav class="nav__links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#consulting">Consulting</a>
+        <a href="#students">Students</a>
+        <a href="#contact" class="btn btn--small">Get in touch</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="eyebrow" data-bind="location"></p>
+        <h1>Hi, I'm <span class="gradient" data-bind="name"></span>.</h1>
+        <p class="hero__role" data-bind="role"></p>
+        <p class="hero__tagline" data-bind="tagline"></p>
+        <div class="hero__cta">
+          <a href="#work" class="btn">View my work</a>
+          <a href="#consulting" class="btn btn--ghost">Hire me</a>
+          <a href="#students" class="btn btn--ghost">Learn with me</a>
+        </div>
+        <div class="stats" id="stats"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>Builder, advisor & teacher</h2>
+          <div id="about-text"></div>
+        </div>
+        <div>
+          <h3>Skills & tools</h3>
+          <ul class="chips" id="skills"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section section--alt" id="work">
+      <div class="container">
+        <p class="eyebrow">Portfolio</p>
+        <h2>Selected work</h2>
+        <div class="filters" id="filters" role="tablist"></div>
+        <div class="grid grid--3" id="works"></div>
+      </div>
+    </section>
+
+    <!-- CONSULTING -->
+    <section class="section" id="consulting">
+      <div class="container">
+        <p class="eyebrow">Consultancy</p>
+        <h2>How I can help your business</h2>
+        <p class="lead">From early-stage ideas to scaling products, I offer focused engagements that deliver measurable results.</p>
+        <div class="grid grid--4" id="services"></div>
+
+        <h3 class="subhead">How it works</h3>
+        <ol class="process" id="process"></ol>
+
+        <div class="cta-banner">
+          <div>
+            <h3>Have a project in mind?</h3>
+            <p>Book a free 30-minute discovery call.</p>
+          </div>
+          <a href="#contact" class="btn" data-inquiry="consulting">Book a consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENTS -->
+    <section class="section section--alt" id="students">
+      <div class="container">
+        <p class="eyebrow">For students</p>
+        <h2>Learn by building real projects</h2>
+        <p class="lead">Practical, mentor-led programs designed to take you from curious beginner to confident, job-ready professional.</p>
+        <div class="grid grid--3 programs" id="programs"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <p class="eyebrow">Kind words</p>
+        <h2>What clients & students say</h2>
+        <div class="grid grid--3" id="testimonial-list"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section--alt" id="contact">
+      <div class="container contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let's work together</h2>
+          <p class="lead">Whether you need a consultant or want to join a program, send a message and I'll reply within 48 hours.</p>
+          <p><a class="contact__email" data-bind-email></a></p>
+          <ul class="socials" id="socials"></ul>
+        </div>
+
+        <form class="form" id="contact-form" novalidate>
+          <div class="form__tabs" role="tablist">
+            <button type="button" class="form__tab is-active" data-type="consulting">I'm a client</button>
+            <button type="button" class="form__tab" data-type="student">I'm a student</button>
+          </div>
+          <input type="hidden" name="inquiry" value="consulting" />
+
+          <label>Full name
+            <input name="name" required autocomplete="name" />
+          </label>
+          <label>Email
+            <input name="email" type="email" required autocomplete="email" />
+          </label>
+
+          <div data-for="consulting">
+            <label>Company / organisation
+              <input name="company" />
+            </label>
+            <label>Service of interest
+              <select name="service" id="service-select"></select>
+            </label>
+            <label>Estimated budget
+              <select name="budget">
+                <option>Under $1,000</option>
+                <option>$1,000 – $5,000</option>
+                <option>$5,000 – $15,000</option>
+                <option>$15,000+</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+          </div>
+
+          <div data-for="student" hidden>
+            <label>Program
+              <select name="program" id="program-select"></select>
+            </label>
+            <label>Current level
+              <select name="level">
+                <option>Complete beginner</option>
+                <option>Some experience</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+              </select>
+            </label>
+          </div>
+
+          <label>Message
+            <textarea name="message" rows="4" required placeholder="Tell me about your goals…"></textarea>
+          </label>
+
+          <button type="submit" class="btn btn--block">Send message</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> <span data-bind="name"></span>. All rights reserved.</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/content.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
